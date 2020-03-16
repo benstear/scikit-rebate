@@ -36,7 +36,7 @@ jobs:
         pip install junit2html
         
     - name: simple pytest
-      run: pytest scedar
+      run: python3 setup.py test
     #===============================================#
     #- name: STEP 5. Pytest-ing and Code Coverage (gen_baseline_images.sh)
     #  run: |
