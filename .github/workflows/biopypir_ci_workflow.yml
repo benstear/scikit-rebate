@@ -32,6 +32,7 @@ jobs:
         pip install scipy
         pip install pandas
         pip install sklearn
+        pip install nose
         
         pip install .
         pip install pytest
