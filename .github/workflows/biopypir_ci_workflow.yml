@@ -20,15 +20,19 @@ jobs:
       uses: benstear/python-pylint-github-action@master
       id: linter
       with:
-        package_name: scki-rebate
+        package_name: scikit-rebate
         verbosity: score_only
         
     #===============================================#
     - name: STEP 3. Install dependencies
       run: |
-        pwd
         pip install --upgrade pip setuptools wheel
-        pip install --no-binary :all: nmslib
+        
+        pip install numpy
+        pip install scipy
+        pip install pandas
+        pip install sklearn
+        
         pip install .
         pip install pytest
         pip install python-coveralls
