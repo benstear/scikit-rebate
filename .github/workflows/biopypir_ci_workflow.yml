@@ -33,7 +33,7 @@ jobs:
         pip install pandas
         pip install sklearn
         pip install nose
-        
+        pip install unittest
         pip install .
         pip install pytest
         pip install python-coveralls
