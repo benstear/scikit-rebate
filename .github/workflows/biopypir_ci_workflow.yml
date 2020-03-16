@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest 
     strategy:
       matrix:
-        python-version: [2.7] #,3.6,3.7] 
+        python-version: [2.7,3.6,3.7] 
         os: [macOS-latest, ubuntu-latest] 
     steps:
     - name: STEP 1. Check-Out Repo 
@@ -41,7 +41,8 @@ jobs:
         pip install junit2html
         
     - name: simple pytest
-      run: python setup.py test
+      run: nosetests -s -v 
+      # python setup.py test
     #===============================================#
     #- name: STEP 5. Pytest-ing and Code Coverage (gen_baseline_images.sh)
     #  run: |
