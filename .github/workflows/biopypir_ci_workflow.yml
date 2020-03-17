@@ -43,35 +43,7 @@ jobs:
     - name: simple pytest
       run: nosetests -s -v 
       # python setup.py test
-    #===============================================#
-    #- name: STEP 5. Pytest-ing and Code Coverage (gen_baseline_images.sh)
-    #  run: |
-    #    python setup.py test \
-    #         --addopts "--mpl-generate-path=tests/baseline_images \
-    #         --color=yes --cov-config .coveragerc --cov-branch \
-    #         --cov=scedar --junitxml=junitxml-doc.xml \
-    #         --ignore=tests/test_cluster/test_mirac_large_data.py"   
-    #    junit2html junitxml-doc.xml coverage-report.html
-    #===============================================#
-    #- name: STEP 5.1 Pytest-ing and Code Coverage 2 (pytest_all.sh)
-    #  run: |
-    #    python setup.py test \
-    #        --addopts "--mpl --mpl-baseline-path=tests/baseline_images \
-    #        --color=yes --cov-config .coveragerc --cov-branch --cov=scedar --junitxml=junitxml-doc.xml"
-    #          junit2html junitxml-doc.xml coverage-report-2.html
-    #===============================================#
-    - name: STEP 6. Run Coveralls 
-      env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        COVERALLS_PARALLEL: true
-      run: coveralls
-   #===============================================#
-    - name: coveralls finish
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        parallel-finished: true
-    #===============================================#
+
     - name: STEP 7. Zip Artifacts
       run: |
         zip artifacts.zip coverage-report.html coverage-report-2.html pylint-report.txt
