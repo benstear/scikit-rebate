@@ -3,7 +3,7 @@ name: BIOPYPIR-APPROVED
 on: [push,pull_request] 
 jobs:
   build:
-    runs-on: ubuntu-latest 
+    runs-on: ${{ matrix.os }} 
     strategy:
       matrix:
         python-version: [2.7] #,3.5,3.6,3.7] 
